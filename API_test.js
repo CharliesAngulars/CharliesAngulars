@@ -7,7 +7,7 @@ function handleAddress(input) {
 	
 }
 
-handleAddress("Yosemite");
+handleAddress("San Francisco");
 
 function handleLocation(input) {
 	var inputJSON = JSON.parse(input);
@@ -31,3 +31,4 @@ function httpGetAsync(theUrl, callback)
 function print (text) {
 	console.log(JSON.parse(text));
 }
+
