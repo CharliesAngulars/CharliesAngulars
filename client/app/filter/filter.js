@@ -34,9 +34,9 @@ angular.module('parksAndEx.filter', [])
 		var temp;
 		for(var i = 1; i < results.length; i++) {
 			if (results[i].name === input_global) {
-			temp = results[0];
-			results[0] = results[i];
-			results[i] = temp;
+			temp = results[i];
+			results.splice(i);
+			results.unshift(temp);
 			}
 		}
 		$scope.locations = results;
