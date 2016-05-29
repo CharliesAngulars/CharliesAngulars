@@ -33,7 +33,7 @@ angular.module('parksAndEx.filter', [])
 		});
 		var temp;
 		for(var i = 1; i < results.length; i++) {
-			if (results[i].name === input_global) {
+			if (results[i].name.toUpperCase() === input_global.toUpperCase()) {
 			temp = results[i];
 			results.splice(i);
 			results.unshift(temp);
