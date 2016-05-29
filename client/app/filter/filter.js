@@ -102,8 +102,8 @@ handleCampground();
             type: 'GET',
             url: 'https://api.transitandtrails.org/api/v1/campgrounds?key=1c78a948e0a02614d9caed392ee1388fc15e5eadc005ca69f7c451e80c02e1a0',
             async: false,
-            contentType: "application/json",
-            dataType: 'json',
+            //contentType: "application/json",
+            dataType: 'jsonp',
             success: function(data) {
                 console.log(data);
 
