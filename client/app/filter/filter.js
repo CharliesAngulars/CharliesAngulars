@@ -16,6 +16,7 @@ angular.module('parksAndEx.filter', [])
   	filterFactory.resize();
   }
 	
+	
 }).factory('filterFactory', function($http) {
 	function resize(){
     google.maps.event.trigger(map, "resize");
@@ -91,5 +92,25 @@ angular.module('parksAndEx.filter', [])
 
 });
 
- 
+handleCampground();
+	
+	function handleCampground(input) {
+	
+	//httpGetAsync('http://api.amp.active.com/camping/campground/details?contractCode=CO&parkId=50032&api_key=dr4texk5yrrhvfykvcbg5zza', print);
+	console.log("handleCampgrounds");
+	$.ajax({
+            type: 'GET',
+            url: 'https://api.transitandtrails.org/api/v1/campgrounds?key=1c78a948e0a02614d9caed392ee1388fc15e5eadc005ca69f7c451e80c02e1a0',
+            async: false,
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(data) {
+                console.log(data);
+
+            },
+            failure: function(err) {
+                console.log("ERR", err);
+            }
+        });
+	} 
 
