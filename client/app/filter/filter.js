@@ -2,7 +2,8 @@ angular.module('parksAndEx.filter', [])
 
 .controller('filterController', function ($scope,$rootScope, filterFactory) {
 	$scope.$on('initial-generate', function(event, args) {
-    	filterFactory.generate(args, $scope, $rootScope);
+    	input_global = args;
+		filterFactory.generate(args, $scope, $rootScope);
 	});
 	$scope.rerenderAll = function (param1, param2) {
 		console.log(param1, param2);
@@ -30,6 +31,14 @@ angular.module('parksAndEx.filter', [])
 		var lng = element.geometry.location.lng();
 		element.latlng={lat:lat, lng:lng}
 		});
+		var temp;
+		for(var i = 1; i < results.length; i++) {
+			if (results[i].name === input_global) {
+			temp = results[0];
+			results[0] = results[i];
+			results[i] = temp;
+			}
+		}
 		$scope.locations = results;
 		$rootScope.$broadcast('list-set', results);
 		console.log(results);
@@ -92,25 +101,4 @@ angular.module('parksAndEx.filter', [])
 
 });
 
-handleCampground();
-	
-	function handleCampground(input) {
-	
-	//httpGetAsync('http://api.amp.active.com/camping/campground/details?contractCode=CO&parkId=50032&api_key=dr4texk5yrrhvfykvcbg5zza', print);
-	console.log("handleCampgrounds");
-	$.ajax({
-            type: 'GET',
-            url: 'https://api.transitandtrails.org/api/v1/campgrounds?key=1c78a948e0a02614d9caed392ee1388fc15e5eadc005ca69f7c451e80c02e1a0',
-            async: false,
-            //contentType: "application/json",
-            dataType: 'jsonp',
-            success: function(data) {
-                console.log(data);
-
-            },
-            failure: function(err) {
-                console.log("ERR", err);
-            }
-        });
-	} 
-
+var input_global;
