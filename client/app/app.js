@@ -4,5 +4,6 @@ angular.module('parksAndEx', [
   'parksAndEx.description',
   'parksAndEx.filter',
   'parksAndEx.toggleNavbar',
-  'parksAndEx.weather'
+  'parksAndEx.weather',
+  'parksAndEx.yelpReviews'
 ]);
