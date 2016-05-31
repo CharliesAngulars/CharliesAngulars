@@ -1,8 +1,8 @@
 angular.module('parksAndEx.campgrounds', [])
 
 .controller('campgroundsController', function ($scope) {
-	var url = "https://api.transitandtrails.org/api/v1/campgrounds?key=1c78a948e0a02614d9caed392ee1388fc15e5eadc005ca69f7c451e80c02e1a0";
-	var yql = 'http://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from json where url="' + url + '"') + '&format=json&callback=?';
+	var url = "http://api.amp.active.com/camping/campgrounds/?pname=Angel%20Island%20State%20Park&api_key=dr4texk5yrrhvfykvcbg5zza";
+	var yql = 'http://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from xml where url="' + url + '"') + '&format=json&callback=?';
    
 	$.ajax({
 	    type: 'GET',
