@@ -66,6 +66,7 @@ angular.module('parksAndEx.campgrounds', [])
 	    success: function(data) {
 		    console.log(data);
 			$scope.campgroundinfo = data.query.results.detailDescription.amenity;
+			$scope.$apply();
 	    },
 	    failure: function(err) {
 		    console.log("ERR", err);
