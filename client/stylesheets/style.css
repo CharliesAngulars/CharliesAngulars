@@ -201,3 +201,15 @@ div, span{
     align: center;
     padding: 5px;
 }
+
+/*campgrounds style here*/
+
+#campgrounds {
+    padding: 20px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+#campgroundsTitle {
+	font-weight: bold;
+}

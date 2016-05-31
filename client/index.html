@@ -21,6 +21,7 @@
     <script src='app/description/description.js'></script>
      <script src="app/services/services.js"></script>
      <script src="app/species/species.js"></script>
+	 <script src="app/campgrounds/campgrounds.js"></script>
     <script src="assets/park_category.js"></script>
     <script src="app/weather/weather.js"></script>
     <script src="app/toggleNavbar/toggleNavbar.js"></script>
@@ -48,8 +49,8 @@
                 </div>
                 <div id="filterContent" >
                   <ul ng-repeat="loc in locations track by $index"> <!-- sort by distance then rating-->
-                    <li class="filteredItem">
-                      <div ng-click = "rerenderAll(loc.latlng.lat, loc.latlng.lng)" lat={{loc.latlng.lat}} lng={{loc.latlng.lng}}>{{$index + 1}}. <strong>{{loc.name}}</strong></div>
+                    <li ng-click = "rerenderAll(loc.latlng.lat, loc.latlng.lng, loc.name)" lat={{loc.latlng.lat}} lng={{loc.latlng.lng}} class="filteredItem">
+                      <div>{{$index + 1}}. <strong>{{loc.name}}</strong></div>
                       <div>{{loc.vicinity}}</div>
                       <div>Rating: {{loc.rating}}</div>
                     </li>
@@ -74,7 +75,7 @@
                     <li class="navbarLi" ng-click="reset(); tab2 = !tab2">Forecast</li>
                     <li class="navbarLi" ng-click="reset(); tab3 = !tab3">Reviews</li>
                     <li class="navbarLi" ng-click="reset(); tab4 = !tab4">Wildlife</li>
-                    <li class="navbarLi" ng-click="reset(); tab5 = !tab5">New Features2</li>
+                    <li class="navbarLi" ng-click="reset(); tab5 = !tab5">Campgrounds</li>
                   </ul>
                 </div>
                 <div id="weather" ng-controller="weatherController" ng-show="tab1">
@@ -106,8 +107,11 @@
                 <div id="featureContent4" ng-controller="speciesController" ng-show="tab4">
                   <div ng-bind-html="textArea"></div>  
                 </div>
-                <div id="featureContent5" ng-show="tab5">
-                  <h3>Just a place holder for your awesome contents5</h3> 
+                <div id="campgrounds" ng-controller="campgroundsController" ng-show="tab5">
+				  <div id="campgroundsTitle"> Campground Amenities: </div>
+                  <div ng-repeat="info in campgroundinfo">
+					<span> {{info.name}} </span>
+				  </div>  
                 </div>
              </div>
           </span>

@@ -5,11 +5,12 @@ angular.module('parksAndEx.filter', [])
     	input_global = args;
 		filterFactory.generate(args, $scope, $rootScope);
 	});
-	$scope.rerenderAll = function (param1, param2) {
-		console.log(param1, param2);
+	$scope.rerenderAll = function (param1, param2, name) {
+		console.log(param1, param2, name);
 		$rootScope.$broadcast('switch-park', {
       lat: param1,
-      lng: param2
+      lng: param2,
+	  name: name
     });
 	};
  
